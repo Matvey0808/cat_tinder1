@@ -278,3 +278,113 @@ class CardFavorite2 extends StatelessWidget {
     );
   }
 }
+
+// Карточки для Настроек
+
+class CardTheme1 extends StatelessWidget {
+  const CardTheme1({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Card(
+        color: Colors.white,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10),
+        ),
+        child: SizedBox(
+          width: 255,
+          height: 55,
+          child: Row(
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(left: 5),
+                child: Icon(
+                  Icons.nightlight,
+                  size: 25,
+                  color: Colors.blueGrey,
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 15),
+                child: Text(
+                  "Темная тема",
+                  style: TextStyle(
+                      fontSize: 17,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.blueGrey),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 40),
+                child: Transform.scale(
+                  scale: 1,
+                  child: Switch(
+                    value: true,
+                    onChanged: (bool value) {},
+                    activeColor: Colors.pink[200],
+                    thumbColor: const WidgetStatePropertyAll(Colors.white),
+                  ),
+                ),
+              )
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class CardTheme2 extends StatelessWidget {
+  const CardTheme2({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Card(
+        color: Colors.white,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10),
+        ),
+        child: SizedBox(
+          width: 255,
+          height: 55,
+          child: Row(
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(left: 5),
+                child: Icon(
+                  Icons.notifications,
+                  size: 25,
+                  color: Colors.blueGrey,
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 17),
+                child: Text(
+                  "Уведомления",
+                  style: TextStyle(
+                      fontSize: 17,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.blueGrey),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 30),
+                child: Transform.scale(
+                  scale: 1,
+                  child: Switch(
+                    value: true,
+                    onChanged: (bool value) {},
+                    activeColor: Colors.pink[200],
+                    thumbColor: const WidgetStatePropertyAll(Colors.white),
+                  ),
+                ),
+              )
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
