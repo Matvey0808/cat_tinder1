@@ -13,7 +13,7 @@ class CatCard1 extends StatelessWidget {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12),
           ),
-          color: Colors.pink[100],
+          color: Colors.pink[200],
           child: SizedBox(
             width: 160,
             height: 220,
@@ -93,7 +93,7 @@ class CatCard2 extends StatelessWidget {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12),
           ),
-          color: Colors.pink[100],
+          color: Colors.pink[200],
           child: SizedBox(
             width: 160,
             height: 220,
@@ -151,6 +151,57 @@ class CatCard2 extends StatelessWidget {
                       ],
                     )
                   ],
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class CardFavorite extends StatelessWidget {
+  const CardFavorite({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Card(
+        color: Colors.pink[200],
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(12),
+        ),
+        child: SizedBox(
+          width: 330,
+          height: 60,
+          child: Expanded(
+            child: Row(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(left: 8, top: 4),
+                  child: Icon(
+                    Icons.favorite,
+                    size: 28,
+                    color: Colors.redAccent,
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 40),
+                  child: Text(
+                    "Избранные пушистые",
+                    style: TextStyle(fontSize: 17, color: Colors.white),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 25),
+                  child: IconButton(
+                    onPressed: () {},
+                    icon: Icon(
+                      Icons.arrow_forward_outlined,
+                      color: Colors.white,
+                    ),
+                  ),
                 ),
               ],
             ),

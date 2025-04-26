@@ -1,4 +1,5 @@
 import 'package:cat_tinder1/screens/HomeScreen.dart';
+import 'package:cat_tinder1/screens/card.dart';
 import 'package:flutter/material.dart';
 
 class SecondScreen extends StatelessWidget {
@@ -7,21 +8,23 @@ class SecondScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.pink[100],
       body: SafeArea(
         child: Column(
           children: [
-            Center(child: Text("Проверка")),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.pop(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const Homescreen(),
-                  ),
-                );
-              },
-              child: Text("Выход на начальный экран"),
+            Center(
+              child: Padding(
+                padding: const EdgeInsets.only(top: 15),
+                child: Text(
+                  "Настройки",
+                  style: TextStyle(
+                      fontSize: 23,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.white),
+                ),
+              ),
             ),
+            CardFavorite(),
           ],
         ),
       ),

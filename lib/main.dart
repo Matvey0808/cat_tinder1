@@ -1,4 +1,6 @@
 import 'package:cat_tinder1/screens/HomeScreen.dart';
+import 'package:cat_tinder1/screens/Second_screen.dart';
+import 'package:cat_tinder1/screens/card.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,7 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Homescreen(),
+      home: SecondScreen(),
     );
   }
 }
