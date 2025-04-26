@@ -24,7 +24,29 @@ class SecondScreen extends StatelessWidget {
                 ),
               ),
             ),
-            CardFavorite(),
+            Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(top: 20),
+                  child: CardFavorite1(),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 20),
+                  child: CardFavorite2(),
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.pop(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => Homescreen(),
+                      ),
+                    );
+                  },
+                  child: Text("Тест кнопка потом будет норм"),
+                ),
+              ],
+            ),
           ],
         ),
       ),

@@ -51,7 +51,7 @@ class Homescreen extends StatelessWidget {
               style: TextStyle(
                   fontSize: 22,
                   fontWeight: FontWeight.w500,
-                  color: Color.fromARGB(255, 236, 220, 190)),
+                  color: Colors.pink[200]),
             ),
           ),
           Row(
