@@ -388,3 +388,129 @@ class CardTheme2 extends StatelessWidget {
     );
   }
 }
+
+class CardTheme3 extends StatelessWidget {
+  const CardTheme3({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Card(
+        color: Colors.white,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10),
+        ),
+        child: SizedBox(
+          width: 255,
+          height: 55,
+          child: Row(
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(left: 7),
+                child: Icon(
+                  Icons.edit,
+                  size: 25,
+                  color: Colors.blueGrey,
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 17),
+                child: Text(
+                  "Сменить аватар",
+                  style: TextStyle(
+                      fontSize: 17,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.blueGrey),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class CardTheme4 extends StatelessWidget {
+  const CardTheme4({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Card(
+        color: Colors.white,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10),
+        ),
+        child: SizedBox(
+          width: 255,
+          height: 55,
+          child: Row(
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(left: 7),
+                child: Icon(
+                  Icons.person,
+                  size: 25,
+                  color: Colors.blueGrey,
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 17),
+                child: Text(
+                  "Изменить никнейм",
+                  style: TextStyle(
+                      fontSize: 17,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.blueGrey),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class CardTheme5 extends StatelessWidget {
+  const CardTheme5({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Card(
+        color: Colors.white,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10),
+        ),
+        child: SizedBox(
+          width: 255,
+          height: 55,
+          child: Row(
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(left: 7),
+                child: Icon(
+                  Icons.delete,
+                  size: 25,
+                  color: Colors.blueGrey,
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 17),
+                child: Text(
+                  "Очистить избранные",
+                  style: TextStyle(
+                      fontSize: 17,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.blueGrey),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}

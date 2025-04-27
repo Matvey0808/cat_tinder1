@@ -17,7 +17,7 @@ class SecondScreen extends StatelessWidget {
           ),
           child: SizedBox(
             width: 300,
-            height: 500,
+            height: 590,
             child: Expanded(
               child: Column(
                 children: [
@@ -58,6 +58,51 @@ class SecondScreen extends StatelessWidget {
                           fontSize: 18,
                           fontWeight: FontWeight.w500,
                           color: Colors.grey[500]),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 6),
+                    child: Column(
+                      children: [
+                        CardTheme3(),
+                        CardTheme4(),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(right: 160, top: 15),
+                    child: Text(
+                      "Избранные",
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w500,
+                        color: Colors.grey[500],
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 6),
+                    child: Column(
+                      children: [
+                        CardTheme5(),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 8),
+                    child: Text(
+                      "Спасибо, что любите котиков!",
+                      style: TextStyle(
+                          fontSize: 15,
+                          fontWeight: FontWeight.w500,
+                          color: Colors.grey[600]),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 5),
+                    child: Icon(
+                      Icons.pets,
+                      color: Colors.grey,
                     ),
                   )
                 ],
