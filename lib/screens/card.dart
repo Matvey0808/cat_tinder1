@@ -6,8 +6,14 @@ import 'package:flutter/material.dart';
 class CatCard1 extends StatelessWidget {
   final String name;
   final String image;
+  final Function(BuildContext) onInfoPressed;
 
-  const CatCard1({required this.name, required this.image});
+  const CatCard1({
+    super.key,
+    required this.name,
+    required this.image,
+    required this.onInfoPressed,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -39,14 +45,9 @@ class CatCard1 extends StatelessWidget {
                   padding: const EdgeInsets.only(top: 20),
                   child: IconButton(
                     onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => InfoCard1(),
-                        ),
-                      );
+                      onInfoPressed(context);
                     },
-                    icon: Icon(
+                    icon: const Icon(
                       Icons.info,
                       color: Colors.white,
                       size: 30,
