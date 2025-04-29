@@ -1,5 +1,6 @@
 import 'package:cat_tinder1/screens/Second_screen.dart';
 import 'package:cat_tinder1/screens/card.dart';
+import 'package:cat_tinder1/screens/swipe_card.dart';
 import 'package:flutter/material.dart';
 
 class Homescreen extends StatelessWidget {
@@ -9,74 +10,54 @@ class Homescreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(70),
-        child: AppBar(
-          backgroundColor: Colors.pink[200],
-          elevation: 2,
-          shadowColor: Colors.black,
-          leading: Padding(
-            padding: const EdgeInsets.only(top: 5),
-            child: IconButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const SecondScreen(),
-                  ),
-                );
-              },
-              icon: Icon(
-                Icons.menu,
-                size: 39,
-              ),
-            ),
-          ),
-          title: Padding(
-            padding: const EdgeInsets.only(right: 1, bottom: 1),
-            child: Image.asset(
-              "assets/images/cinder.png",
-              scale: 8,
-            ),
-          ),
-          centerTitle: true,
-        ),
-      ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(right: 140, top: 15),
-            child: Text(
-              "Найди своего друга!",
-              style: TextStyle(
-                  fontSize: 22,
-                  fontWeight: FontWeight.w500,
-                  color: Colors.pink[200]),
-            ),
-          ),
-          Row(
+        preferredSize: const Size.fromHeight(80),
+        child: Container(
+          color: Colors.pink[200],
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Expanded(
-                child: Padding(
-                  padding: const EdgeInsets.only(top: 9),
-                  child: SizedBox(
-                    height: 230,
-                    child: CatCard1(),
+              Padding(
+                padding: const EdgeInsets.only(bottom: 20),
+                child: AppBar(
+                  backgroundColor: Colors.transparent,
+                  elevation: 0,
+                  leading: Padding(
+                    padding: const EdgeInsets.only(top: 12),
+                    child: IconButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const SecondScreen(),
+                          ),
+                        );
+                      },
+                      icon: const Icon(
+                        Icons.menu,
+                        color: Colors.white,
+                        size: 39,
+                      ),
+                    ),
                   ),
-                ),
-              ),
-              Expanded(
-                child: Padding(
-                  padding: const EdgeInsets.only(top: 9),
-                  child: SizedBox(
-                    height: 230,
-                    child: CatCard2(),
+                  title: Padding(
+                    padding: const EdgeInsets.only(top: 10),
+                    child: Image.asset(
+                      "assets/images/cinder.png",
+                      width: 128,
+                      filterQuality: FilterQuality.high,
+                      isAntiAlias: true,
+                      scale: 8,
+                    ),
                   ),
+                  centerTitle: true,
                 ),
               ),
             ],
-          )
-        ],
+          ),
+        ),
+      ),
+      body: Center(
+        child: TinderScreen(),
       ),
     );
   }
