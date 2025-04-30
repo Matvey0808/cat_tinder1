@@ -15,11 +15,13 @@ class _TinderScreenState extends State<TinderScreen> {
     {
       "name": "Бобик",
       "image": "assets/images/catTINDER.jpeg",
+      "info": "pipikaka123",
       "onInfoPressed": (BuildContext context) {
         Navigator.push(
           context,
           MaterialPageRoute(
             builder: (context) => InfoCard1(
+                info: "pipikaka234",
                 name: "Информация о Бобике",
                 image: "assets/images/catTINDER.jpeg"),
           ),
@@ -29,11 +31,13 @@ class _TinderScreenState extends State<TinderScreen> {
     {
       "name": "Бобр",
       "image": "assets/images/catTINDER3.png",
+      "info": "проверка1",
       "onInfoPressed": (BuildContext context) {
         Navigator.push(
           context,
           MaterialPageRoute(
             builder: (context) => InfoCard1(
+                info: "проверка2",
                 name: "Информация о Бобре",
                 image: "assets/images/catTINDER3.png"),
           ),
@@ -43,11 +47,13 @@ class _TinderScreenState extends State<TinderScreen> {
     {
       "name": "Кирпич",
       "image": "assets/images/catTINDER5.jpg",
+      "info": "asdasdasdasda123",
       "onInfoPressed": (BuildContext context) {
         Navigator.push(
           context,
           MaterialPageRoute(
             builder: (context) => InfoCard1(
+                info: "asdasdasd234",
                 name: "Информация о Кирпиче",
                 image: "assets/images/catTINDER5.jpg"),
           ),
@@ -64,8 +70,7 @@ class _TinderScreenState extends State<TinderScreen> {
             .map((catData) => CatCard1(
                   name: catData['name'] as String,
                   image: catData['image'] as String,
-                  onInfoPressed:
-                      catData['onInfoPressed'] as Function(BuildContext),
+                  onInfoPressed: () => catData['onInfoPressed'](context),
                 ))
             .toList(),
       ),

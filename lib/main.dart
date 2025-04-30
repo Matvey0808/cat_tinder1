@@ -3,6 +3,7 @@ import 'package:cat_tinder1/screens/Second_screen.dart';
 import 'package:cat_tinder1/screens/block.dart';
 import 'package:cat_tinder1/screens/card.dart';
 import 'package:cat_tinder1/screens/favorite.dart';
+import 'package:cat_tinder1/screens/infoCard.dart';
 import 'package:cat_tinder1/screens/swipe_card.dart';
 import 'package:flutter/material.dart';
 
