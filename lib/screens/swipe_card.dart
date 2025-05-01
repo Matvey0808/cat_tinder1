@@ -15,13 +15,30 @@ class _TinderScreenState extends State<TinderScreen> {
     {
       "name": "Бобик",
       "image": "assets/images/catTINDER.jpeg",
-      "info": "pipikaka123",
+      "info": "Имя: Бобик",
       "onInfoPressed": (BuildContext context) {
         Navigator.push(
           context,
           MaterialPageRoute(
             builder: (context) => InfoCard1(
-                info: "pipikaka234",
+                info: """
+                Имя: Бобик
+                Возраст: 2 года
+
+                Особые навыки
+                - Эксперт по сну 23/7
+              - Тестировщик диванов
+
+                Характер
+          - Днем - комочек счастья
+                - Ночью - тыгыдык
+
+                Любимая еда:\n            Что лежитна столе
+
+                Вес: 3 кг\n               (+ ваш бутерброд)
+
+                Расписание:\n           5:00\n          Концерт утренних трелей\n           10:00\n          Сон после завтрака\n           15:00\n         проверка качества дивана
+                """,
                 name: "Информация о Бобике",
                 image: "assets/images/catTINDER.jpeg"),
           ),
@@ -37,7 +54,24 @@ class _TinderScreenState extends State<TinderScreen> {
           context,
           MaterialPageRoute(
             builder: (context) => InfoCard1(
-                info: "проверка2",
+                info: """
+                Имя: Кирпич
+                Возраст: 3 года
+
+                Особые навыки
+          - Профессиональный массажист
+              - Тестировщик диванов
+
+                Характер
+          - Днем - комочек счастья
+                - Ночью - тыгыдык
+
+                Любимая еда:\n            Что лежитна столе
+
+                Вес: 3 кг\n               (+ ваш бутерброд)
+
+                Расписание:\n           5:00\n          Концерт утренних трелей\n           10:00\n          Сон после завтрака\n           15:00\n         проверка качества дивана
+                """,
                 name: "Информация о Бобре",
                 image: "assets/images/catTINDER3.png"),
           ),

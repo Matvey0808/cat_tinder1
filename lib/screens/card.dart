@@ -1,3 +1,4 @@
+import 'package:cat_tinder1/main.dart';
 import 'package:cat_tinder1/screens/block.dart';
 import 'package:cat_tinder1/screens/favorite.dart';
 import 'package:cat_tinder1/screens/infoCard.dart';
@@ -6,7 +7,7 @@ import 'package:flutter/material.dart';
 class CatCard1 extends StatelessWidget {
   final String name;
   final String image;
-  final VoidCallback onInfoPressed; // Изменено на VoidCallback
+  final VoidCallback onInfoPressed;
 
   const CatCard1({
     super.key,
@@ -17,69 +18,114 @@ class CatCard1 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: SizedBox(
-        width: 300,
-        child: Card(
-          color: Colors.pink[100],
-          margin: const EdgeInsets.all(20),
-          elevation: 8,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(20),
-          ),
-          child: Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                const SizedBox(height: 10),
-                // Изображение кота
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(15),
-                  child: Image.asset(
-                    image,
-                    width: 250,
-                    height: 200,
-                    fit: BoxFit.cover,
-                    errorBuilder: (context, error, stackTrace) => Container(
-                      width: 250,
-                      height: 200,
-                      color: Colors.grey[300],
-                      child: const Icon(Icons.error, size: 50),
-                    ),
+    return SizedBox(
+      width: 320,
+      height: 470,
+      child: Card(
+        clipBehavior: Clip.antiAlias,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20),
+        ),
+        child: Stack(
+          children: [
+            // Изображение кота на весь размер карточки
+            Positioned.fill(
+              child: Image.asset(
+                image,
+                fit: BoxFit.cover,
+                errorBuilder: (_, __, ___) => Center(
+                  child: Icon(Icons.pets, size: 100, color: Colors.pink[200]),
+                ),
+              ),
+            ),
+            Positioned(
+              bottom: 0,
+              left: 0,
+              right: 0,
+              child: Container(
+                height: 120,
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.bottomCenter,
+                    end: Alignment.topCenter,
+                    colors: [
+                      Colors.pink[200]!.withOpacity(0.9),
+                      Colors.transparent,
+                    ],
                   ),
                 ),
-                // Название кота
-                Text(
-                  name,
-                  style: const TextStyle(
-                    fontSize: 2,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
+              ),
+            ),
+            Positioned(
+              bottom: 20,
+              left: 0,
+              right: 0,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  // Кнопка "Лайк"
+                  _buildActionButton(
+                    icon: Icons.close,
+                    color: Colors.pinkAccent,
+                    onPressed: () {},
                   ),
-                ),
-                // Кнопка информации
-                Padding(
-                  padding: const EdgeInsets.only(top: 12),
-                  child: ElevatedButton.icon(
+
+                  // Кнопка "Подробнее"
+                  ElevatedButton.icon(
                     onPressed: onInfoPressed,
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.pink[200],
+                      backgroundColor: Colors.pink[100]!.withOpacity(0.8),
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 20,
+                        vertical: 12,
                       ),
                     ),
-                    icon: const Icon(Icons.info, color: Colors.white),
+                    icon: const Icon(Icons.info, size: 20, color: Colors.white),
                     label: const Text(
                       'Подробнее',
                       style: TextStyle(color: Colors.white),
                     ),
                   ),
-                ),
-              ],
+
+                  // Кнопка "Дизлайк"
+                  _buildActionButton(
+                    icon: Icons.favorite,
+                    color: Colors.redAccent,
+                    onPressed: () {},
+                  ),
+                ],
+              ),
             ),
-          ),
+          ],
         ),
+      ),
+    );
+  }
+
+  Widget _buildActionButton({
+    required IconData icon,
+    required Color color,
+    required VoidCallback onPressed,
+  }) {
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.white.withOpacity(0.9),
+        shape: BoxShape.circle,
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.1),
+            blurRadius: 6,
+            spreadRadius: 2,
+          ),
+        ],
+      ),
+      child: IconButton(
+        icon: Icon(icon, color: color),
+        iconSize: 28,
+        onPressed: onPressed,
       ),
     );
   }
@@ -203,14 +249,24 @@ class CardFavorite2 extends StatelessWidget {
 
 // Карточки для Настроек
 
-class CardTheme1 extends StatelessWidget {
+class CardTheme1 extends StatefulWidget {
   const CardTheme1({super.key});
 
   @override
+  State<CardTheme1> createState() => _CardTheme1State();
+}
+
+class _CardTheme1State extends State<CardTheme1> {
+  bool _isDarkModeLocal = false;
+
+  @override
   Widget build(BuildContext context) {
+    final appState = context.findAncestorStateOfType<MyAppState>()!;
+    _isDarkModeLocal = appState.isDarkMode;
+
     return Center(
       child: Card(
-        color: Colors.white,
+        color: Theme.of(context).cardColor,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10),
         ),
@@ -219,16 +275,16 @@ class CardTheme1 extends StatelessWidget {
           height: 55,
           child: Row(
             children: [
-              Padding(
-                padding: const EdgeInsets.only(left: 5),
+              const Padding(
+                padding: EdgeInsets.only(left: 5),
                 child: Icon(
                   Icons.nightlight,
                   size: 25,
                   color: Colors.blueGrey,
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(left: 15),
+              const Padding(
+                padding: EdgeInsets.only(left: 15),
                 child: Text(
                   "Темная тема",
                   style: TextStyle(
@@ -242,9 +298,16 @@ class CardTheme1 extends StatelessWidget {
                 child: Transform.scale(
                   scale: 1,
                   child: Switch(
-                    value: true,
-                    onChanged: (bool value) {},
-                    activeColor: Colors.pink[200],
+                    value: _isDarkModeLocal,
+                    onChanged: (bool value) {
+                      setState(() {
+                        _isDarkModeLocal = value;
+                      });
+                      appState
+                          .toggleTheme(); // Вызываем метод для смены темы в MyApp
+                    },
+                    activeTrackColor: Colors.pink[200],
+                    inactiveTrackColor: Colors.pink[100],
                     thumbColor: const WidgetStatePropertyAll(Colors.white),
                   ),
                 ),
@@ -317,35 +380,38 @@ class CardTheme3 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Card(
-        color: Colors.white,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10),
-        ),
-        child: SizedBox(
-          width: 255,
-          height: 55,
-          child: Row(
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(left: 7),
-                child: Icon(
-                  Icons.edit,
-                  size: 25,
-                  color: Colors.blueGrey,
+      child: GestureDetector(
+        onTap: () {},
+        child: Card(
+          color: Colors.white,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10),
+          ),
+          child: SizedBox(
+            width: 255,
+            height: 55,
+            child: Row(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(left: 7),
+                  child: Icon(
+                    Icons.favorite,
+                    size: 25,
+                    color: Colors.blueGrey,
+                  ),
                 ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 17),
-                child: Text(
-                  "Сменить аватар",
-                  style: TextStyle(
-                      fontSize: 17,
-                      fontWeight: FontWeight.w500,
-                      color: Colors.blueGrey),
+                Padding(
+                  padding: const EdgeInsets.only(left: 17),
+                  child: Text(
+                    "Избранные",
+                    style: TextStyle(
+                        fontSize: 17,
+                        fontWeight: FontWeight.w500,
+                        color: Colors.blueGrey),
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
@@ -372,7 +438,7 @@ class CardTheme4 extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(left: 7),
                 child: Icon(
-                  Icons.person,
+                  Icons.close,
                   size: 25,
                   color: Colors.blueGrey,
                 ),
@@ -380,7 +446,7 @@ class CardTheme4 extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(left: 17),
                 child: Text(
-                  "Изменить никнейм",
+                  "Плохиши",
                   style: TextStyle(
                       fontSize: 17,
                       fontWeight: FontWeight.w500,

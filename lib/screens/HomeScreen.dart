@@ -64,33 +64,6 @@ class Homescreen extends StatelessWidget {
               child: TinderScreen(),
             ),
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(left: 50, bottom: 150),
-                child: IconButton(
-                  onPressed: () {},
-                  icon: Icon(
-                    Icons.favorite,
-                    color: Colors.greenAccent[400],
-                    size: 55,
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(right: 50, bottom: 150),
-                child: IconButton(
-                  onPressed: () {},
-                  icon: Icon(
-                    Icons.cancel,
-                    color: Colors.redAccent[200],
-                    size: 55,
-                  ),
-                ),
-              ),
-            ],
-          ),
         ],
       ),
     );
