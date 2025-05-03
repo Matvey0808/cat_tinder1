@@ -1,4 +1,3 @@
-import 'package:cat_tinder1/screens/HomeScreen.dart';
 import 'package:flutter/material.dart';
 
 class InfoCard1 extends StatelessWidget {

@@ -48,8 +48,9 @@ class SecondScreen extends StatelessWidget {
                     ],
                   ),
                 ),
+                CardTheme2(),
                 const Padding(
-                  padding: EdgeInsets.only(right: 160, top: 15),
+                  padding: EdgeInsets.only(right: 160, top: 5),
                   child: Text(
                     "Профиль",
                     style: TextStyle(
@@ -58,6 +59,42 @@ class SecondScreen extends StatelessWidget {
                         color: Colors.grey),
                   ),
                 ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 5),
+                  child: CardTheme3(),
+                ),
+                CardTheme4(),
+                Padding(
+                  padding: EdgeInsets.only(right: 160, top: 5),
+                  child: Text(
+                    "Удаление",
+                    style: TextStyle(
+                        fontSize: 19,
+                        fontWeight: FontWeight.w500,
+                        color: Colors.grey),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 5),
+                  child: CardTheme5(),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 15),
+                  child: Text(
+                    "Спасибо, что любите котиков!",
+                    style: TextStyle(
+                        fontSize: 16,
+                        color: Colors.blueGrey,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 10),
+                  child: Icon(
+                    Icons.pets,
+                    color: Colors.blueGrey,
+                  ),
+                )
               ],
             ),
           ),

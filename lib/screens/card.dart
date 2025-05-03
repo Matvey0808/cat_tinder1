@@ -1,7 +1,6 @@
 import 'package:cat_tinder1/main.dart';
 import 'package:cat_tinder1/screens/block.dart';
 import 'package:cat_tinder1/screens/favorite.dart';
-import 'package:cat_tinder1/screens/infoCard.dart';
 import 'package:flutter/material.dart';
 
 class CatCard1 extends StatelessWidget {
@@ -249,21 +248,11 @@ class CardFavorite2 extends StatelessWidget {
 
 // Карточки для Настроек
 
-class CardTheme1 extends StatefulWidget {
+class CardTheme1 extends StatelessWidget {
   const CardTheme1({super.key});
 
   @override
-  State<CardTheme1> createState() => _CardTheme1State();
-}
-
-class _CardTheme1State extends State<CardTheme1> {
-  bool _isDarkModeLocal = false;
-
-  @override
   Widget build(BuildContext context) {
-    final appState = context.findAncestorStateOfType<MyAppState>()!;
-    _isDarkModeLocal = appState.isDarkMode;
-
     return Center(
       child: Card(
         color: Theme.of(context).cardColor,
@@ -298,14 +287,8 @@ class _CardTheme1State extends State<CardTheme1> {
                 child: Transform.scale(
                   scale: 1,
                   child: Switch(
-                    value: _isDarkModeLocal,
-                    onChanged: (bool value) {
-                      setState(() {
-                        _isDarkModeLocal = value;
-                      });
-                      appState
-                          .toggleTheme(); // Вызываем метод для смены темы в MyApp
-                    },
+                    value: true,
+                    onChanged: (bool value) {},
                     activeTrackColor: Colors.pink[200],
                     inactiveTrackColor: Colors.pink[100],
                     thumbColor: const WidgetStatePropertyAll(Colors.white),
@@ -361,7 +344,7 @@ class CardTheme2 extends StatelessWidget {
                   child: Switch(
                     value: true,
                     onChanged: (bool value) {},
-                    activeColor: Colors.pink[200],
+                    activeColor: Colors.pink[400],
                     thumbColor: const WidgetStatePropertyAll(Colors.white),
                   ),
                 ),
