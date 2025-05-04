@@ -1,14 +1,15 @@
-import 'package:cat_tinder1/screens/HomeScreen.dart';
-import 'package:cat_tinder1/screens/Second_screen.dart';
-import 'package:cat_tinder1/screens/block.dart';
-import 'package:cat_tinder1/screens/card.dart';
-import 'package:cat_tinder1/screens/favorite.dart';
-import 'package:cat_tinder1/screens/infoCard.dart';
-import 'package:cat_tinder1/screens/swipe_card.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'theme_provider.dart';
+import 'screens/HomeScreen.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => ThemeProvider(),
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -16,9 +17,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final themeProvider = Provider.of<ThemeProvider>(context);
+
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Homescreen(),
+      theme: ThemeData.light(),
+      darkTheme: ThemeData.dark(),
+      themeMode: themeProvider.themeMode,
+      home: const Homescreen(),
     );
   }
 }

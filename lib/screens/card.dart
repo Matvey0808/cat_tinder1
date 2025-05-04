@@ -1,7 +1,8 @@
-import 'package:cat_tinder1/main.dart';
 import 'package:cat_tinder1/screens/block.dart';
 import 'package:cat_tinder1/screens/favorite.dart';
 import 'package:flutter/material.dart';
+import 'package:cat_tinder1/theme_provider.dart';
+import 'package:provider/provider.dart';
 
 class CatCard1 extends StatelessWidget {
   final String name;
@@ -137,6 +138,8 @@ class CardTheme1 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final themeProvider = Provider.of<ThemeProvider>(context);
+
     return Center(
       child: Card(
         color: Theme.of(context).cardColor,
@@ -171,8 +174,10 @@ class CardTheme1 extends StatelessWidget {
                 child: Transform.scale(
                   scale: 1,
                   child: Switch(
-                    value: true,
-                    onChanged: (bool value) {},
+                    value: themeProvider.themeMode == ThemeMode.dark,
+                    onChanged: (bool value) {
+                      themeProvider.toggleTheme(value);
+                    },
                     activeTrackColor: Colors.pink[200],
                     inactiveTrackColor: Colors.pink[100],
                     thumbColor: const WidgetStatePropertyAll(Colors.white),

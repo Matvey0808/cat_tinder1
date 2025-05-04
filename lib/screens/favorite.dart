@@ -1,4 +1,3 @@
-import 'package:cat_tinder1/screens/Second_screen.dart';
 import 'package:flutter/material.dart';
 
 class FavoriteScreen extends StatelessWidget {
