@@ -7,7 +7,7 @@ class BlockScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.pink[100],
       body: SafeArea(
         child: Center(
           child: Column(
@@ -17,22 +17,11 @@ class BlockScreen extends StatelessWidget {
                 child: Text(
                   "Ваши плохиши",
                   style: TextStyle(
-                      fontSize: 22,
-                      fontWeight: FontWeight.w400,
-                      color: Colors.pink[200]),
+                    fontSize: 23,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.white,
+                  ),
                 ),
-              ),
-              Text("Скоро добавлю сюда плохишей!"),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.pop(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => SecondScreen(),
-                    ),
-                  );
-                },
-                child: Text("тест кнопка"),
               ),
             ],
           ),
