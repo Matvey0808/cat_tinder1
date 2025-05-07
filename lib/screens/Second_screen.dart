@@ -1,6 +1,8 @@
-import 'package:cat_tinder1/screens/HomeScreen.dart';
-import 'package:cat_tinder1/screens/card.dart';
+
 import 'package:flutter/material.dart';
+
+import '../widgets/card.dart';
+import 'home_screen.dart';
 
 class SecondScreen extends StatelessWidget {
   const SecondScreen({super.key});
@@ -114,7 +116,7 @@ class SecondScreen extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const Homescreen(),
+                        builder: (context) => const HomeScreen(),
                       ),
                     );
                   },

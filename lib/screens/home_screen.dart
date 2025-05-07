@@ -1,9 +1,9 @@
-import 'package:cat_tinder1/screens/Second_screen.dart';
+import 'package:cat_tinder1/screens/second_screen.dart';
 import 'package:cat_tinder1/screens/swipe_card.dart';
 import 'package:flutter/material.dart';
 
-class Homescreen extends StatelessWidget {
-  const Homescreen({super.key});
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

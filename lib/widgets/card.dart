@@ -1,10 +1,11 @@
-import 'package:cat_tinder1/screens/block.dart';
-import 'package:cat_tinder1/screens/favorite.dart';
+import 'package:cat_tinder1/screens/block_screen.dart';
+import 'package:cat_tinder1/screens/favorite_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:cat_tinder1/theme_provider.dart';
 import 'package:provider/provider.dart';
+import 'package:cat_tinder1/models/favorite_cats.dart';
 
-class CatCard1 extends StatelessWidget {
+class CatCard1 extends StatefulWidget {
   final String name;
   final String image;
   final VoidCallback onInfoPressed;
@@ -15,6 +16,13 @@ class CatCard1 extends StatelessWidget {
     required this.image,
     required this.onInfoPressed,
   });
+
+  @override
+  State<CatCard1> createState() => _CatCard1State();
+}
+
+class _CatCard1State extends State<CatCard1> {
+  final FavoriteCats _favoriteCats = FavoriteCats();
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +39,7 @@ class CatCard1 extends StatelessWidget {
             // Изображение кота на весь размер карточки
             Positioned.fill(
               child: Image.asset(
-                image,
+                widget.image,
                 fit: BoxFit.cover,
                 errorBuilder: (_, __, ___) => Center(
                   child: Icon(Icons.pets, size: 100, color: Colors.pink[200]),
@@ -63,7 +71,7 @@ class CatCard1 extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  // Кнопка "Лайк"
+                  // Кнопка "Дизлайк"
                   _buildActionButton(
                     icon: Icons.close,
                     color: Colors.pinkAccent,
@@ -72,7 +80,7 @@ class CatCard1 extends StatelessWidget {
 
                   // Кнопка "Подробнее"
                   ElevatedButton.icon(
-                    onPressed: onInfoPressed,
+                    onPressed: widget.onInfoPressed,
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.pink[100]!.withOpacity(0.8),
                       shape: RoundedRectangleBorder(
@@ -90,11 +98,21 @@ class CatCard1 extends StatelessWidget {
                     ),
                   ),
 
-                  // Кнопка "Дизлайк"
+                  // Кнопка "Лайк"
                   _buildActionButton(
-                    icon: Icons.favorite,
+                    icon: _favoriteCats.isFavorite(widget.name) 
+                        ? Icons.favorite 
+                        : Icons.favorite_border,
                     color: Colors.redAccent,
-                    onPressed: () {},
+                    onPressed: () {
+                      setState(() {
+                        if (_favoriteCats.isFavorite(widget.name)) {
+                          _favoriteCats.removeFavorite(widget.name);
+                        } else {
+                          _favoriteCats.addFavorite(widget.name, widget.image);
+                        }
+                      });
+                    },
                   ),
                 ],
               ),
@@ -183,7 +201,7 @@ class CardTheme1 extends StatelessWidget {
                     thumbColor: const WidgetStatePropertyAll(Colors.white),
                   ),
                 ),
-              )
+              ),
             ],
           ),
         ),
@@ -203,7 +221,7 @@ class CardTheme3 extends StatelessWidget {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => FavoriteScreen(),
+              builder: (context) => FavoritesScreen(),
             ),
           );
         },

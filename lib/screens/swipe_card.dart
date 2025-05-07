@@ -1,5 +1,5 @@
-import 'package:cat_tinder1/screens/card.dart';
-import 'package:cat_tinder1/screens/infoCard.dart';
+import 'package:cat_tinder1/widgets/card.dart';
+import 'package:cat_tinder1/widgets/infoCard.dart';
 import 'package:flutter/material.dart';
 import 'package:tcard/tcard.dart';
 
