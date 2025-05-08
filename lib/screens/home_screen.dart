@@ -1,17 +1,25 @@
 import 'package:cat_tinder1/screens/second_screen.dart';
 import 'package:cat_tinder1/screens/swipe_card.dart';
 import 'package:flutter/material.dart';
+import '../theme_provider.dart';
+import 'package:provider/provider.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final themeProvider = Provider.of<ThemeProvider>(context);
+    final isDarkMode = themeProvider.themeMode == ThemeMode.dark;
+    final appBarColor = isDarkMode
+        ? Theme.of(context).appBarTheme.backgroundColor
+        : Colors.pink[200];
+
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(80),
         child: Container(
-          color: Colors.pink[200],
+          color: appBarColor,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [

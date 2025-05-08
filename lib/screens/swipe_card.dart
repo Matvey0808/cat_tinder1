@@ -55,7 +55,7 @@ class _TinderScreenState extends State<TinderScreen> {
           MaterialPageRoute(
             builder: (context) => InfoCard1(
                 info: """
-                Имя: Кирпич
+                Имя: Бобр(у меня нет фантазии)
                 Возраст: 3 года
 
                 Особые навыки
@@ -87,7 +87,23 @@ class _TinderScreenState extends State<TinderScreen> {
           context,
           MaterialPageRoute(
             builder: (context) => InfoCard1(
-                info: "asdasdasd234",
+                info: """
+                Имя: Кирпич
+                Возраст: 2 года
+
+                Особые навыки
+              - Владеет гипнозом
+
+                Характер
+          - Днем - солнечный зайчик
+                - Ночью - неуловимый ниндзя
+
+                Любимая еда:\n            утащеный бутерброд
+
+                Вес: 1 кг\n               (+ ваш бутерброд)
+
+                Расписание:\n           5:00\n          вокал\n           10:00\n          Сон после завтрака\n           15:00\n         охота на невидимых врагов
+                """,
                 name: "Информация о Кирпиче",
                 image: "assets/images/catTINDER5.jpg"),
           ),

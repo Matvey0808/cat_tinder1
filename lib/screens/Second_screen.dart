@@ -1,5 +1,6 @@
+import 'package:cat_tinder1/theme_provider.dart';
 import 'package:flutter/material.dart';
-
+import 'package:provider/provider.dart';
 import '../widgets/card.dart';
 import 'home_screen.dart';
 
@@ -8,8 +9,13 @@ class SecondScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final themeProvider = Provider.of<ThemeProvider>(context);
+    final backgroundColor = themeProvider.themeMode == ThemeMode.light
+        ? themeProvider.pinkBackground
+        : Theme.of(context).scaffoldBackgroundColor;
+
     return Scaffold(
-      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+      backgroundColor: backgroundColor,
       body: Column(
         children: [
           Center(
@@ -30,9 +36,10 @@ class SecondScreen extends StatelessWidget {
                         child: Text(
                           "Настройки",
                           style: TextStyle(
-                              fontSize: 28,
-                              fontWeight: FontWeight.w500,
-                              color: Colors.blueGrey),
+                            fontSize: 28,
+                            fontWeight: FontWeight.w500,
+                            color: Colors.blueGrey,
+                          ),
                         ),
                       ),
                       const Padding(
@@ -40,17 +47,16 @@ class SecondScreen extends StatelessWidget {
                         child: Text(
                           "Дополнительно",
                           style: TextStyle(
-                              fontSize: 19,
-                              fontWeight: FontWeight.w500,
-                              color: Colors.grey),
+                            fontSize: 19,
+                            fontWeight: FontWeight.w500,
+                            color: Colors.grey,
+                          ),
                         ),
                       ),
                       Padding(
                         padding: const EdgeInsets.only(top: 8),
                         child: Column(
-                          children: [
-                            CardTheme1(),
-                          ],
+                          children: [CardTheme1()],
                         ),
                       ),
                       const Padding(
@@ -58,9 +64,10 @@ class SecondScreen extends StatelessWidget {
                         child: Text(
                           "Профиль",
                           style: TextStyle(
-                              fontSize: 19,
-                              fontWeight: FontWeight.w500,
-                              color: Colors.grey),
+                            fontSize: 19,
+                            fontWeight: FontWeight.w500,
+                            color: Colors.grey,
+                          ),
                         ),
                       ),
                       Padding(
@@ -68,14 +75,15 @@ class SecondScreen extends StatelessWidget {
                         child: CardTheme3(),
                       ),
                       CardTheme4(),
-                      Padding(
+                      const Padding(
                         padding: EdgeInsets.only(right: 160, top: 5),
                         child: Text(
                           "Удаление",
                           style: TextStyle(
-                              fontSize: 19,
-                              fontWeight: FontWeight.w500,
-                              color: Colors.grey),
+                            fontSize: 19,
+                            fontWeight: FontWeight.w500,
+                            color: Colors.grey,
+                          ),
                         ),
                       ),
                       CardTheme6(),
@@ -83,18 +91,19 @@ class SecondScreen extends StatelessWidget {
                         padding: const EdgeInsets.only(top: 5),
                         child: CardTheme5(),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 15),
+                      const Padding(
+                        padding: EdgeInsets.only(top: 15),
                         child: Text(
                           "Спасибо, что любите котиков!",
                           style: TextStyle(
-                              fontSize: 16,
-                              color: Colors.blueGrey,
-                              fontWeight: FontWeight.bold),
+                            fontSize: 16,
+                            color: Colors.blueGrey,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 10),
+                      const Padding(
+                        padding: EdgeInsets.only(top: 10),
                         child: Icon(
                           Icons.pets,
                           color: Colors.blueGrey,
@@ -119,7 +128,7 @@ class SecondScreen extends StatelessWidget {
                       ),
                     );
                   },
-                  icon: Icon(
+                  icon: const Icon(
                     Icons.arrow_back,
                     size: 34,
                     color: Colors.blueGrey,

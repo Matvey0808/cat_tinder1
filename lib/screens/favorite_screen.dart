@@ -15,7 +15,10 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Избранные кошки'),
+        title: const Text(
+          'Избранные кошки',
+          style: TextStyle(color: Colors.white),
+        ),
         backgroundColor: Colors.pink[100],
       ),
       body: _favoriteCats.favorites.isEmpty

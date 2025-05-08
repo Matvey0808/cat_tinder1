@@ -15,7 +15,10 @@ class _BlockScreenState extends State<BlockScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Плохие кошечки'),
+        title: const Text(
+          'Плохие кошечки',
+          style: TextStyle(color: Colors.white),
+        ),
         backgroundColor: Colors.pink[100],
       ),
       body: _blockCats.blocked.isEmpty
