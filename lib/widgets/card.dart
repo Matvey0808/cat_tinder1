@@ -73,9 +73,20 @@ class _CatCard1State extends State<CatCard1> {
                 children: [
                   // Кнопка "Дизлайк"
                   _buildActionButton(
-                    icon: Icons.close,
-                    color: Colors.pinkAccent,
-                    onPressed: () {},
+                    icon: BlockCats().isBlock(widget.name)
+                        ? Icons.block
+                        : Icons.block_outlined,
+                    color: Colors.redAccent,
+                    onPressed: () {
+                      setState(() {
+                        if (BlockCats().isBlock(widget.name)) {
+                          BlockCats().removeBlock(widget.name);
+                        } else {
+                          BlockCats().addBlock(widget.name, widget.image);
+                          _favoriteCats.removeFavorite(widget.name);
+                        }
+                      });
+                    },
                   ),
 
                   // Кнопка "Подробнее"
@@ -100,8 +111,8 @@ class _CatCard1State extends State<CatCard1> {
 
                   // Кнопка "Лайк"
                   _buildActionButton(
-                    icon: _favoriteCats.isFavorite(widget.name) 
-                        ? Icons.favorite 
+                    icon: _favoriteCats.isFavorite(widget.name)
+                        ? Icons.favorite
                         : Icons.favorite_border,
                     color: Colors.redAccent,
                     onPressed: () {

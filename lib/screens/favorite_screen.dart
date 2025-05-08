@@ -36,15 +36,22 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
                       borderRadius: BorderRadius.circular(8),
                       child: Image.asset(
                         cat['image']!,
-                        width: 60,
-                        height: 60,
+                        width: 50,
+                        height: 50,
                         fit: BoxFit.cover,
                         errorBuilder: (_, __, ___) => const Icon(Icons.pets),
                       ),
                     ),
-                    title: Text(cat['name']!),
+                    title: Text(
+                      cat['name']!,
+                      style: TextStyle(
+                          fontSize: 19,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.blueGrey),
+                    ),
                     trailing: IconButton(
-                      icon: const Icon(Icons.delete, color: Colors.red),
+                      icon:
+                          const Icon(Icons.delete, color: Colors.red, size: 30),
                       onPressed: () {
                         setState(() {
                           _favoriteCats.removeFavorite(cat['name']!);
